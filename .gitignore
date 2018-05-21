@@ -9,3 +9,5 @@ node_modules
 asset
 
 test.js
+
+.idea

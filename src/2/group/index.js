@@ -1,4 +1,4 @@
-module.exports ={
-	one: require('./one'),
-	two: require('./two')
-};
+module.exports = {
+  one: require('./one'),
+  two: require('./two')
+}
