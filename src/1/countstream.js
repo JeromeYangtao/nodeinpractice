@@ -1,24 +1,23 @@
-var Writable = require('stream').Writable;
-var util = require('util');
+let Writable = require('stream').Writable
 
-module.exports = CountStream;
+class CountStream extends Writable {
+  constructor (matchTxt, options) {
+    super(options)
+    this.count = 0
+    this.matcher = new RegExp(matchTxt, 'ig')
+  }
 
-util.inherits(CountStream, Writable);
+  _write (chunk, encodeing, cb) {
+    let matchs = chunk.toString().match(this.matcher)
+    if (matchs) {
+      this.count += matchs.length
+    }
+    cb()
+  }
 
-function CountStream(matchTxt, options) {
-	Writable.call(this, options);
-	this.count = 0;
-	this.matcher = new RegExp(matchTxt, 'ig');
+  end () {
+    this.emit('total', this.count)
+  }
 }
 
-CountStream.prototype._write = function(chunk, encodeing, cb) {
-	var matchs = chunk.toString().match(this.matcher);
-	if (matchs) {
-		this.count += matchs.length;
-	}
-	cb();
-};
-
-CountStream.prototype.end = function() {
-	this.emit('total', this.count);
-};
+module.exports = CountStream

@@ -1,16 +1,16 @@
-var assert = require('assert');
-var CountStream = require('./countStream');
-var countStream = new CountStream('example');
-var fs = require('fs');
-var passed = 0;
+let assert = require('assert')
+let CountStream = require('./countStream')
+let countStream = new CountStream('测试')
+let fs = require('fs')
+let passed = 0
 
-countStream.on('tatal', function(count){
-	assert.equal(count, 1);
-	passed++;
-});
+countStream.on('total', function (count) {
+  assert.equal(count, 1)
+  passed++
+})
 
-fs.createReadStream(__filename).pipe(countStream);
+fs.createReadStream(__filename).pipe(countStream)
 
-process.on('exit', function() {
-	console.log('Assertions passed: ', passed);
-});
+process.on('exit', function () {
+  console.log('Assertions passed: ', passed)
+})
