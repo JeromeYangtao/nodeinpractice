@@ -1,3 +1,3 @@
-var group = require('./group');
-group.one();
-group.two();
+let group = require('./group')
+group.one()
+group.two()
