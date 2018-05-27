@@ -1,3 +1,4 @@
+const process = require('process')
 switch (process.arch) {
   case 'x64':
     require('./lib.x64.node')
@@ -6,5 +7,5 @@ switch (process.arch) {
     require('./lib.Win32.node')
     break
   default:
-    throw new Error('Unsupported process arch:', porcess.arch)
+    throw new Error('Unsupported process arch:' + process.arch)
 }

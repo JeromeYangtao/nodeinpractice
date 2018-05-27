@@ -1,0 +1,24 @@
+{
+  "name": "nodeinpractice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JeromeYangtao/nodeinpractice.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JeromeYangtao/nodeinpractice/issues"
+  },
+  "homepage": "https://github.com/JeromeYangtao/nodeinpractice#readme",
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  }
+}
